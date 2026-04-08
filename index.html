@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edaad.io - Strategic Pitch Deck 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-dark: #0a0a0c; --google-blue: #4285F4; --neon-green: #39FF14; --silver: #C0C0C0; --soft-white: #e0e0e0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Tajawal', 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--soft-white); overflow: hidden; height: 100vh; }
+        .slide-container { position: relative; height: 100vh; width: 100vw; }
+        .slide { position: absolute; top: 0; left: 0; height: 100%; width: 100%; display: none; flex-direction: column; justify-content: center; align-items: center; padding: 40px 8%; text-align: center; background: radial-gradient(circle at center, #111122 0%, var(--bg-dark) 100%); }
+        .slide.active { display: flex; animation: fadeIn 0.4s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .bilingual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; width: 100%; margin-top: 15px; }
+        .col-ar { text-align: right; border-right: 3px solid var(--neon-green); padding-right: 25px; direction: rtl; }
+        .col-en { text-align: left; border-left: 3px solid var(--google-blue); padding-left: 25px; direction: ltr; font-family: 'Inter', sans-serif; }
+        .card { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 12px; font-size: 0.85rem; line-height: 1.4; }
+        .stat-box { border: 1px dashed var(--neon-green); padding: 10px; margin-top: 10px; border-radius: 8px; font-weight: bold; }
+        h1 { font-size: 2.8rem; color: var(--silver); margin-bottom: 5px; }
+        h2 { font-size: 1.6rem; margin-bottom: 10px; }
+        .highlight-gn { color: var(--neon-green); font-weight: 800; }
+        .highlight-bl { color: var(--google-blue); font-weight: 700; }
+        .controls { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); display: flex; gap: 20px; z-index: 1000; }
+        .btn { background: transparent; border: 1px solid var(--neon-green); color: var(--neon-green); padding: 10px 25px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .btn:hover { background: var(--neon-green); color: black; }
+        .badge { border: 1px solid var(--google-blue); padding: 6px 18px; border-radius: 50px; font-size: 0.75rem; color: var(--google-blue); margin-bottom: 15px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <section class="slide active">
+        <div class="badge">Google for Startups Cloud Program Participant</div>
+        <h1>إعداد <span class="highlight-gn">Edaad.io</span></h1>
+        <div class="bilingual-grid">
+            <div class="col-ar"><p>منظومة ذكاء اصطناعي شاملة تدمج معايير الجودة العالمية مع كفاءة الإنتاج التقني الفائق.</p></div>
+            <div class="col-en"><p>A comprehensive AI ecosystem merging global quality standards with hyper-efficient technical production.</p></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="highlight-gn">كفاءة الإنتاج | Production Efficiency</h2>
+        <div class="bilingual-grid">
+            <div class="col-ar">
+                <div class="card">
+                    <p><strong>الوضع التقليدي (Traditional):</strong></p>
+                    <p>مدة الإنتاج: <span style="color:red">120 يوم</span></p>
+                    <p>التكلفة التقريبية: <span style="color:red">$13,000</span> لكل حقيبة.</p>
+                </div>
+                <div class="stat-box highlight-gn">مع إعداد: إنتاج خلال 3 أيام وتوفير 90% من التكلفة.</div>
+            </div>
+            <div class="col-en">
+                <div class="card">
+                    <p><strong>The Bottleneck:</strong></p>
+                    <p>Time: <span style="color:red">120 Days</span></p>
+                    <p>Cost: <span style="color:red">$13,000</span> per package.</p>
+                </div>
+                <div class="stat-box highlight-bl">With Edaad: 3-day production & 90% cost reduction.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="highlight-gn">رؤية التوسع | Scalability Roadmap</h2>
+        <div class="bilingual-grid">
+            <div class="col-ar">
+                <div class="card"><strong>المرحلة الحالية:</strong> الانطلاق من الأردن (ZINC & Orange) بالشراكة مع وكيل أكسفورد.</div>
+                <div class="card"><strong>المرحلة القادمة:</strong> التوسع في السوق السعودي كأكبر بيئة تعليمية وتقنية في المنطقة.</div>
+            </div>
+            <div class="col-en">
+                <div class="card"><strong>Phase 1:</strong> Launching from Jordan (ZINC & Orange) with Oxford College agent.</div>
+                <div class="card"><strong>Phase 2:</strong> Expanding into the Saudi Market as the region's largest EdTech hub.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="bilingual-grid">
+            <div class="col-ar">
+                <h2 class="highlight-gn">السيادة التقنية</h2>
+                <div class="card">استخدام <strong>Vertex AI</strong> و <strong>Gemini 1.5</strong> لتشغيل "محرك الاستنتاج المنطقي" في المختبرات الافتراضية.</div>
+                <div class="card">نظام دبلجة وترجمة آلية (In-house) يضمن الوصول للعالمية بضغطة زر.</div>
+            </div>
+            <div class="col-en">
+                <h2 class="highlight-bl">Technical Edge</h2>
+                <div class="card">Leveraging <strong>Vertex AI</strong> & <strong>Gemini 1.5</strong> for the AI logic in virtual science labs.</div>
+                <div class="card">In-house automated dubbing & translation for seamless global scale.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="highlight-gn">مشاهدة المنتج | Product Demo</h2>
+        <div style="margin-top: 30px;">
+            <a href="https://youtu.be/6-eME8OmoSw" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" width="200" alt="YouTube">
+            </a>
+            <p style="margin-top: 20px;">اضغط لمشاهدة الديمو (اللغة العربية مع جاهزية الترجمة)<br>Click to watch (Arabic with English readiness)</p>
+        </div>
+    </section>
+</div>
+
+<div class="controls">
+    <button class="btn" onclick="moveSlide(-1)">السابق / Prev</button>
+    <button class="btn" onclick="moveSlide(1)">التالي / Next</button>
+</div>
+
+<script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    function moveSlide(step) {
+        slides[current].classList.remove('active');
+        current = (current + step + slides.length) % slides.length;
+        slides[current].classList.add('active');
+    }
+</script>
+</body>
+</html>
