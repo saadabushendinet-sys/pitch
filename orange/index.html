@@ -38,11 +38,11 @@
             font-family: 'Tajawal', 'Outfit', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
-            overflow: hidden;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         /* Background Effects */
@@ -70,8 +70,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            padding: 40px 10% 120px; /* Safe zone for nav */
+            min-height: 100vh;
+            padding: 60px 5% 150px;
+            justify-content: center;
+
+            /* Safe zone for nav */
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -80,7 +83,8 @@
             opacity: 0;
             transform: translateY(20px);
             transition: var(--transition);
-            overflow-y: auto; /* Internal scroll */
+            overflow-y: auto;
+            /* Internal scroll */
         }
 
         .slide.active {
@@ -238,50 +242,114 @@
 
         /* Pulse Animation */
         @keyframes pulse-orange {
-            0% { box-shadow: 0 0 0 0 rgba(255, 121, 0, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 121, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 121, 0, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 121, 0, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 121, 0, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 121, 0, 0);
+            }
         }
-        .pulse-orange { animation: pulse-orange 2s infinite; }
+
+        .pulse-orange {
+            animation: pulse-orange 2s infinite;
+        }
 
         /* Roadmap Timeline */
         .roadmap-container {
-            display: flex; justify-content: space-between; align-items: center;
-            width: 100%; margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
         }
+
         .roadmap-step {
-            flex: 1; padding: 15px; background: rgba(255,121,0,0.03); 
-            border: 1px solid var(--border-glass); border-radius: 12px; margin: 0 5px;
+            flex: 1;
+            padding: 15px;
+            background: rgba(255, 121, 0, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            margin: 0 5px;
         }
-        .roadmap-step.active { border-color: var(--orange-primary); background: rgba(255,121,0,0.08); }
+
+        .roadmap-step.active {
+            border-color: var(--orange-primary);
+            background: rgba(255, 121, 0, 0.08);
+        }
 
         /* Progress Visual */
         .progress-circle {
-            width: 80px; height: 80px; border-radius: 50%;
-            background: conic-gradient(var(--orange-primary) 90%, rgba(255,255,255,0.1) 0);
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 15px; position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(var(--orange-primary) 90%, rgba(255, 255, 255, 0.1) 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            position: relative;
         }
+
         .progress-circle::after {
-            content: ""; position: absolute; width: 65px; height: 65px;
-            background: var(--bg-dark); border-radius: 50%;
+            content: "";
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            background: var(--bg-dark);
+            border-radius: 50%;
         }
-        .progress-circle span { position: relative; z-index: 10; font-weight: 800; font-size: 1.2rem; }
+
+        .progress-circle span {
+            position: relative;
+            z-index: 10;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
         /* Market Graph (Orange) */
         .market-graph-orange {
-            display: flex; align-items: flex-end; gap: 10px; height: 100px;
-            margin-top: 20px; padding: 10px; border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            height: 100px;
+            margin-top: 20px;
+            padding: 10px;
+            border-bottom: 1px solid var(--border-glass);
         }
-        .bar-orange { flex: 1; background: var(--orange-primary); border-radius: 4px 4px 0 0; opacity: 0.6; transition: 0.3s; }
-        .bar-orange:hover { opacity: 1; transform: scaleY(1.05); }
+
+        .bar-orange {
+            flex: 1;
+            background: var(--orange-primary);
+            border-radius: 4px 4px 0 0;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .bar-orange:hover {
+            opacity: 1;
+            transform: scaleY(1.05);
+        }
 
         /* Synergy Grid */
         .synergy-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
         }
+
         .synergy-item {
-            padding: 15px; background: rgba(255,121,0,0.05); border: 1px solid var(--border-glass);
-            border-radius: 12px; font-size: 0.9rem; text-align: center;
+            padding: 15px;
+            background: rgba(255, 121, 0, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            text-align: center;
         }
 
         .brand-highlight {
@@ -295,7 +363,105 @@
         .hero-logo {
             width: 120px;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 50px;
+                justify-content: flex-start;
+                padding-bottom: 180px !important;
+                overflow-y: auto;
+
+            }
+
+            h1 {
+                font-size: 1.8rem !important;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .bilingual-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .synergy-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .col {
+                padding: 20px;
+            }
+
+            .efficiency-card {
+                padding: 30px !important;
+            }
+
+            .roadmap-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .roadmap-step {
+                width: 100%;
+                margin: 0;
+                padding: 12px;
+            }
+
+            .nav-controls {
+                bottom: 20px;
+                background: rgba(5, 5, 5, 0.8);
+                width: 95%;
+                gap: 10px;
+                padding: 10px;
+                border-radius: 50px;
+                backdrop-filter: blur(5px);
+            }
+
+            .nav-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+                flex: 1;
+            }
+
+            .hero-logo {
+                width: 80px;
+                margin-bottom: 15px;
+            }
+
+            .badge {
+                margin-bottom: 15px;
+                padding: 6px 15px;
+                font-size: 0.75rem;
+            }
+
+            .stat {
+                font-size: 2.2rem;
+            }
+
+            .market-graph-orange {
+                height: 80px;
+            }
+
+            .progress-circle {
+                width: 60px;
+                height: 60px;
+            }
+
+            .progress-circle::after {
+                width: 45px;
+                height: 45px;
+            }
+
+            .progress-circle span {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -310,7 +476,8 @@
         <section class="slide active" id="slide-1">
             <div class="badge pulse-orange">Strategic Partnership | Orange Digital Center</div>
             <img src="../logo.png" alt="Edaad Logo" class="hero-logo">
-            <h1><span class="gradient-text"><span class="brand-highlight">إعداد Edaad AI</span></span><br>Future of Learning</h1>
+            <h1><span class="gradient-text"><span class="brand-highlight">إعداد Edaad AI</span></span><br>Future of
+                Learning</h1>
             <div class="bilingual-grid">
                 <div class="col col-ar">
                     <p>منظومة ذكاء اصطناعي سيادية متكاملة، تعتمد على تكامل نماذج <strong>Gemini 2.5</strong>، لتعيد
@@ -326,7 +493,8 @@
         <!-- Slide 2: The Pain Point -->
         <section class="slide" id="slide-2">
             <div class="badge">The Challenge | الفجوة</div>
-            <h2 style="font-size: 3rem;">لماذا الآن؟ | ?Why Now</h2>
+            <h2 style="font-size: 3rem;">لماذا الآن؟ </h2>
+            <h2 style="font-size: 3rem;"> ?Why Now</h2>
             <div class="bilingual-grid">
                 <div class="col col-ar">
                     <span class="feature-icon">⚠️</span>
@@ -506,10 +674,12 @@
             </div>
             <div class="bilingual-grid" style="margin-top: 20px;">
                 <div class="col col-ar" style="padding: 15px;">
-                    <p>نطمح لتكامل استراتيجي يحول "<span class="brand-highlight">إعداد</span>" إلى الحل المعياري في شبكة أورانج الإقليمية.</p>
+                    <p>نطمح لتكامل استراتيجي يحول "<span class="brand-highlight">إعداد</span>" إلى الحل المعياري في شبكة
+                        أورانج الإقليمية.</p>
                 </div>
                 <div class="col col-en" style="padding: 15px;">
-                    <p>We aim for a strategic integration that establishes <span class="brand-highlight">Edaad</span> as the standard solution across Orange Regional network.</p>
+                    <p>We aim for a strategic integration that establishes <span class="brand-highlight">Edaad</span> as
+                        the standard solution across Orange Regional network.</p>
                 </div>
             </div>
         </section>
@@ -546,7 +716,8 @@
         <section class="slide" id="slide-10">
             <div class="badge">Collaboration | الشـراكة</div>
             <img src="../logo.png" alt="Edaad Logo" class="hero-logo" style="width: 80px;">
-            <h1>Let's Build with <span style="color: var(--orange-primary);"><span class="brand-highlight">Edaad</span></span></h1>
+            <h1>Let's Build with <span style="color: var(--orange-primary);"><span
+                        class="brand-highlight">Edaad</span></span></h1>
             <div class="bilingual-grid">
                 <div class="col col-ar">
                     <h3>سعد أبوشندي</h3>
@@ -589,6 +760,7 @@
             current = (current + step + slides.length) % slides.length;
             slides[current].classList.add('active');
             updateProgress();
+            window.scrollTo(0, 0);
         }
 
         // Keyboard support
