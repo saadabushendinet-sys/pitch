@@ -153,9 +153,10 @@
         .nav-controls {
             position: fixed;
             bottom: 40px;
-            right: 40px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            gap: 15px;
+            gap: 20px;
             z-index: 100;
         }
 
@@ -163,14 +164,17 @@
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
             color: white;
-            width: 50px; height: 50px;
-            border-radius: 50%;
+            padding: 12px 24px;
+            border-radius: 100px;
             cursor: pointer;
             display: flex; justify-content: center; align-items: center;
             transition: 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
         }
 
-        .nav-btn:hover { background: var(--google-blue); border-color: var(--google-blue); }
+        .nav-btn:hover { background: var(--google-blue); border-color: var(--google-blue); transform: scale(1.05); }
 
         .tag-cloud {
             display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px;
@@ -189,6 +193,35 @@
         }
         .demo-link:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
+        /* Roadmap Timeline */
+        .roadmap-container {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; margin-top: 20px; position: relative;
+        }
+        .roadmap-step {
+            flex: 1; position: relative; padding: 15px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);
+            border-radius: 12px; margin: 0 5px;
+        }
+        .roadmap-step.active { border-color: var(--google-blue); background: rgba(66, 133, 244, 0.05); }
+        .roadmap-step.future { border-style: dashed; opacity: 0.6; }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(66, 133, 244, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0); }
+        }
+        .pulse { animation: pulse 2s infinite; }
+
+        /* Market Graph */
+        .market-graph {
+            display: flex; align-items: flex-end; gap: 10px; height: 100px;
+            margin-top: 20px; padding: 10px; border-bottom: 1px solid var(--border-glass);
+        }
+        .bar { flex: 1; background: var(--google-blue); border-radius: 4px 4px 0 0; opacity: 0.7; transition: 0.3s; }
+        .bar:hover { opacity: 1; transform: scaleY(1.05); }
+
     </style>
 </head>
 <body>
@@ -198,7 +231,7 @@
 
 <div class="deck-container">
     <section class="slide active">
-        <div class="badge">
+        <div class="badge pulse">
             <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M21.35 11.1h-9.17v2.73h6.51c-.33 1.56-1.56 2.73-3.21 3.21v.01c-1.35.41-2.91.41-4.26 0-2.43-.74-4.24-2.88-4.47-5.46-.02-.27-.02-.54 0-.81.23-2.58 2.04-4.72 4.47-5.46 1.35-.41 2.91-.41 4.26 0 1.23.37 2.25 1.15 2.91 2.15l2.4-1.8c-1.12-1.54-2.73-2.67-4.57-3.19-3.29-.93-6.84.11-9.11 2.68s-3.04 6.13-1.99 9.54c1.05 3.41 3.98 5.92 7.51 6.45 3.47.53 6.94-.8 8.86-3.41s2.21-6.15 2.06-8.64h-.01z"/></svg>
             Member & Participant, Google for Startups Cloud Program
         </div>
@@ -253,12 +286,21 @@
             </div>
             <div class="card col-en">
                 <h3>Native Series 2 Implementation</h3>
-                <div class="tag-cloud">
-                    <span class="tag">Gemini 2.5 Native</span>
-                    <span class="tag">Vertex AI SDK</span>
-                    <span class="tag">Multimodal Reasoning</span>
+                <div class="roadmap-container">
+                    <div class="roadmap-step active">
+                        <small>Current</small>
+                        <div style="font-weight: bold; color: var(--google-blue);">Gemini 2.5</div>
+                    </div>
+                    <div class="roadmap-step">
+                        <small>Scaling</small>
+                        <div style="font-weight: bold;">Multimodal</div>
+                    </div>
+                    <div class="roadmap-step future">
+                        <small>Next Gen</small>
+                        <div style="font-weight: bold;">Gemini 3.0</div>
+                    </div>
                 </div>
-                <p style="margin-top: 15px;">Edaad is natively architected on Gemini 2.0 & 2.5, leveraging massive context windows (1M+ tokens). We are strategically positioned as an early adopter for <strong>Gemini 3.0</strong> to pioneer the next frontier of adaptive educational AI.</p>
+                <p style="margin-top: 15px;">Edaad is natively architected on Gemini 2.0 & 2.5, leveraging massive context windows (1M+ tokens). We are strategically positioned to pioneer <strong>Gemini 3.0</strong> integration.</p>
             </div>
         </div>
     </section>
@@ -307,6 +349,15 @@
             </div>
             <div class="card col-en">
                 <p>Targeting Jordan as our R&D hub and KSA (Vision 2030) as the largest digital educational market in MENA.</p>
+                <div class="market-graph">
+                    <div class="bar" style="height: 30%;"></div>
+                    <div class="bar" style="height: 50%;"></div>
+                    <div class="bar" style="height: 75%; background: var(--google-green);"></div>
+                    <div class="bar" style="height: 100%; border: 1px dashed white;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 5px;">
+                    <span>2024</span><span>2026</span><span>2028</span><span>2030</span>
+                </div>
             </div>
         </div>
     </section>
@@ -367,8 +418,8 @@
 </div>
 
 <div class="nav-controls">
-    <button class="nav-btn" onclick="moveSlide(-1)">←</button>
-    <button class="nav-btn" onclick="moveSlide(1)">→</button>
+    <button class="nav-btn" onclick="moveSlide(-1)">Back / السابق</button>
+    <button class="nav-btn" onclick="moveSlide(1)" style="background: var(--google-blue); border-color: var(--google-blue);">Next / التالي</button>
 </div>
 
 <script>
@@ -400,8 +451,8 @@
     }
 
     window.addEventListener('keydown', (e) => {
-        if(e.key === "ArrowLeft" || e.key === " ") moveSlide(1);
-        if(e.key === "ArrowRight") moveSlide(-1);
+        if(e.key === "ArrowRight" || e.key === " ") moveSlide(1);
+        if(e.key === "ArrowLeft") moveSlide(-1);
     });
 </script>
 </body>
