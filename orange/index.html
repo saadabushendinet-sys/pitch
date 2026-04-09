@@ -235,19 +235,52 @@
             border: 1px solid var(--border-glass);
         }
 
-        /* Animations */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
+        /* Pulse Animation */
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(255, 121, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 121, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 121, 0, 0); }
+        }
+        .pulse-orange { animation: pulse-orange 2s infinite; }
 
-            50% {
-                transform: translateY(-10px);
-            }
+        /* Roadmap Timeline */
+        .roadmap-container {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; margin-top: 20px;
+        }
+        .roadmap-step {
+            flex: 1; padding: 15px; background: rgba(255,121,0,0.03); 
+            border: 1px solid var(--border-glass); border-radius: 12px; margin: 0 5px;
+        }
+        .roadmap-step.active { border-color: var(--orange-primary); background: rgba(255,121,0,0.08); }
 
-            100% {
-                transform: translateY(0px);
-            }
+        /* Progress Visual */
+        .progress-circle {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: conic-gradient(var(--orange-primary) 90%, rgba(255,255,255,0.1) 0);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px; position: relative;
+        }
+        .progress-circle::after {
+            content: ""; position: absolute; width: 65px; height: 65px;
+            background: var(--bg-dark); border-radius: 50%;
+        }
+        .progress-circle span { position: relative; z-index: 10; font-weight: 800; font-size: 1.2rem; }
+        /* Market Graph (Orange) */
+        .market-graph-orange {
+            display: flex; align-items: flex-end; gap: 10px; height: 100px;
+            margin-top: 20px; padding: 10px; border-bottom: 1px solid var(--border-glass);
+        }
+        .bar-orange { flex: 1; background: var(--orange-primary); border-radius: 4px 4px 0 0; opacity: 0.6; transition: 0.3s; }
+        .bar-orange:hover { opacity: 1; transform: scaleY(1.05); }
+
+        /* Synergy Grid */
+        .synergy-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;
+        }
+        .synergy-item {
+            padding: 15px; background: rgba(255,121,0,0.05); border: 1px solid var(--border-glass);
+            border-radius: 12px; font-size: 0.9rem; text-align: center;
         }
     </style>
 </head>
@@ -260,7 +293,7 @@
     <div class="deck-container">
         <!-- Slide 1: Hero -->
         <section class="slide active" id="slide-1">
-            <div class="badge">Strategic Partnership | Orange Digital Center</div>
+            <div class="badge pulse-orange">Strategic Partnership | Orange Digital Center</div>
             <h1><span class="gradient-text">إعداد Edaad AI</span><br>Future of Learning</h1>
             <div class="bilingual-grid">
                 <div class="col col-ar">
@@ -332,10 +365,19 @@
                 </div>
                 <div class="col col-en">
                     <h3>Advanced Reasoning Engine</h3>
-                    <div class="tag-row">
-                        <span class="tag">Gemini 2.5 Series</span>
-                        <span class="tag">Vertex AI Cloud</span>
-                        <span class="tag">Next: Gemini 3.0</span>
+                    <div class="roadmap-container">
+                        <div class="roadmap-step active">
+                            <small>Current</small>
+                            <div style="font-weight: bold; color: var(--orange-primary);">Gemini 2.5</div>
+                        </div>
+                        <div class="roadmap-step">
+                            <small>Scaling</small>
+                            <div style="font-weight: bold;">Multi-Language</div>
+                        </div>
+                        <div class="roadmap-step" style="opacity: 0.5; border-style: dashed;">
+                            <small>Goal</small>
+                            <div style="font-weight: bold;">Gemini 3.0</div>
+                        </div>
                     </div>
                     <p style="margin-top: 15px;">Fully powered by Gemini 2.0 & 2.5 series, with a technical roadmap
                         ready to integrate Gemini 3.0 upon release to maintain regional leadership in educational AI.
@@ -388,18 +430,14 @@
             <h2>أكثر من مجرد فكرة | Product Ready</h2>
             <div class="bilingual-grid">
                 <div class="col col-ar">
-                    <span class="stat">90%</span>
+                    <div class="progress-circle"><span>90%</span></div>
                     <p><strong>جاهزية المنصة:</strong> البنية التحتية، لوحات التحكم، والمحركات الأساسية مكتملة وجاهزة
                         للتشغيل الفوري.</p>
-                    <p style="margin-top: 5px;">نظام B2B يدعم آلاف المؤسسات التعليمية بعلامات تجارية مستقلة
-                        (White-Labeling).</p>
                 </div>
                 <div class="col col-en">
-                    <span class="stat">90%</span>
+                    <div class="progress-circle"><span>90%</span></div>
                     <p><strong>Product Readiness:</strong> Core Infrastructure, Dashboards, and AI engines are fully
                         developed and ready for deployment.</p>
-                    <p style="margin-top: 5px;">B2B Multi-tenancy architecture supporting thousands of schools with
-                        independent branding.</p>
                 </div>
             </div>
         </section>
@@ -409,18 +447,22 @@
             <div class="badge">Opportunity | الفرصة</div>
             <h2>سوق واعد وطموح | Market Vision</h2>
             <div class="bilingual-grid">
-                <div class="col col-ar">
+                <div class="col col-ar" style="padding: 20px;">
                     <span class="feature-icon">🚀</span>
                     <h3>التحول الرقمي 2030</h3>
-                    <p>الطلب المتزايد في السعودية والأردن على حلول التعليم الذكي يتجاوز المليارات سنوياً.</p>
-                    <p>نستهدف سد الفجوة بين المحتوى التقليدي والمتطلبات التقنية الحديثة.</p>
+                    <p>الطلب المتزايد على حلول التعليم الذكي يتجاوز المليارات سنوياً في المنطقة.</p>
                 </div>
-                <div class="col col-en">
-                    <span class="feature-icon">📈</span>
-                    <h3>Growth Trajectory</h3>
-                    <p>The rising demand for AI-driven education in KSA & Jordan is a multi-billion dollar opportunity.
-                    </p>
-                    <p>We bridge the gap between legacy content and modern technical requirements.</p>
+                <div class="col col-en" style="padding: 20px;">
+                    <div class="market-graph-orange">
+                        <div class="bar-orange" style="height: 30%;"></div>
+                        <div class="bar-orange" style="height: 50%;"></div>
+                        <div class="bar-orange" style="height: 80%;"></div>
+                        <div class="bar-orange" style="height: 100%; box-shadow: 0 0 15px var(--orange-glow);"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 5px;">
+                        <span>2024</span><span>2026</span><span>2028</span><span>2030</span>
+                    </div>
+                    <p style="margin-top: 10px;">Exponential growth targeting the MENA EdTech market.</p>
                 </div>
             </div>
         </section>
@@ -429,20 +471,29 @@
         <section class="slide" id="slide-8">
             <div class="badge">The Ask | الشراكة مع أورانج</div>
             <h2>قوة الشراكة | Power of Synergy</h2>
-            <div class="bilingual-grid">
-                <div class="col col-ar">
-                    <p>🔹 <strong>البنية التحتية:</strong> الاستفادة من سحابة أورانج وخدمات 5G لتشغيل استوديو الفيديو
-                        بدقة فائقة.</p>
-                    <p>🔹 <strong>التوسع:</strong> الوصول إلى شبكة عملاء أورانج في قطاع الأعمال والتعليم (B2B).</p>
-                    <p>🔹 <strong>المصداقية:</strong> اعتماد "أورانج" كشريك استراتيجي يسرع دخولنا للأسواق العالمية.</p>
+            <div class="synergy-grid">
+                <div class="synergy-item">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">☁️</div>
+                    <strong>Infrastructure</strong>
+                    <p>Orange 5G & Cloud</p>
                 </div>
-                <div class="col col-en">
-                    <p>🔹 <strong>Infrastructure:</strong> Leveraging Orange Cloud & 5G to power our high-def AI Video
-                        Studio.</p>
-                    <p>🔹 <strong>Access:</strong> Reaching Orange's massive enterprise & education customer base (B2B).
-                    </p>
-                    <p>🔹 <strong>Scaling:</strong> Partnering with Orange accelerates our expansion into global
-                        markets.</p>
+                <div class="synergy-item">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🤝</div>
+                    <strong>B2B Access</strong>
+                    <p>Orange Enterprise Network</p>
+                </div>
+                <div class="synergy-item">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🌍</div>
+                    <strong>Scale</strong>
+                    <p>Expansion to 22 countries</p>
+                </div>
+            </div>
+            <div class="bilingual-grid" style="margin-top: 20px;">
+                <div class="col col-ar" style="padding: 15px;">
+                    <p>نطمح لتكامل استراتيجي يحول "إعداد" إلى الحل المعياري في شبكة أورانج الإقليمية.</p>
+                </div>
+                <div class="col col-en" style="padding: 15px;">
+                    <p>We aim for a strategic integration that establishes Edaad as the standard solution across Orange Regional network.</p>
                 </div>
             </div>
         </section>
@@ -525,8 +576,8 @@
 
         // Keyboard support
         window.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowLeft" || e.key === " ") moveSlide(1);
-            if (e.key === "ArrowRight") moveSlide(-1);
+            if (e.key === "ArrowRight" || e.key === " ") moveSlide(1);
+            if (e.key === "ArrowLeft") moveSlide(-1);
         });
 
         // Initialize progress
