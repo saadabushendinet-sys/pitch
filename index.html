@@ -74,7 +74,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 40px 8% 120px; /* Added bottom padding for nav escape */
+            padding: 40px 8% 120px;
+            /* Added bottom padding for nav escape */
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -83,7 +84,8 @@
             opacity: 0;
             transform: scale(0.98) translateY(10px);
             transition: var(--transition);
-            overflow-y: auto; /* Allow scrolling if content is too long */
+            overflow-y: auto;
+            /* Allow scrolling if content is too long */
         }
 
         .slide.active {
@@ -353,6 +355,74 @@
             opacity: 1;
             transform: scaleY(1.05);
         }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 60px 5% 150px;
+                min-height: 100vh;
+                padding-top: 40px;
+                justify-content: flex-start;
+                /* Keep centered if possible, but allow overflow */
+            }
+
+            h1 {
+                font-size: 1.8rem !important;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .bilingual-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-top: 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .roadmap-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .roadmap-step {
+                width: 100%;
+                margin: 0;
+                padding: 12px;
+            }
+
+            .nav-controls {
+                bottom: 25px;
+                width: 95%;
+                gap: 10px;
+            }
+
+            .nav-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+                flex: 1;
+            }
+
+            .hero-logo {
+                width: 80px;
+                margin-bottom: 15px;
+            }
+
+            .badge {
+                margin-bottom: 15px;
+                padding: 6px 15px;
+                font-size: 0.75rem;
+            }
+
+            .stat {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 
@@ -410,7 +480,8 @@
                 <h2 class="g-text">120 Days ➔ 3 Days</h2>
                 <div class="bilingual-grid" style="grid-template-columns: 1fr; margin-top: 15px;">
                     <p><strong><span class="brand-highlight">Edaad</span> Reasoning Engine</strong> combined with
-                        <strong>Google Cloud</strong> reduces production time by 98% while slashing costs by 90%.</p>
+                        <strong>Google Cloud</strong> reduces production time by 98% while slashing costs by 90%.
+                    </p>
                     <p style="margin-top: 10px; color: #fff; font-weight: bold;">توفير هائل في الوقت والجهد والتكلفة</p>
                 </div>
             </div>
