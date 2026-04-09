@@ -71,7 +71,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 40px 10%;
+            padding: 40px 10% 120px; /* Safe zone for nav */
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -80,6 +80,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: var(--transition);
+            overflow-y: auto; /* Internal scroll */
         }
 
         .slide.active {
