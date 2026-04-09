@@ -1,131 +1,537 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edaad.io | Orange Strategic Partnership - Saad Abushendi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Edaad AI | Orange Strategic Pitch</title>
+    <meta name="description"
+        content="Edaad AI - Sovereign AI Ecosystem for Educational content. Strategic Partnership Proposal for Orange Digital Center.">
+    <meta property="og:title" content="Edaad AI | Orange Strategic Pitch">
+    <meta property="og:description" content="Redefining educational content production with Gemini 2.5 Native AI.">
+    <meta property="og:image" content="https://www.edaad.io/assets/logo.png">
+    <!-- Replace with actual logo path if available -->
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
     <style>
-        :root { 
-            --bg-dark: #000000; 
-            --orange-brand: #FF7900; 
-            --silver: #C0C0C0; 
-            --soft-white: #f4f4f4; 
+        :root {
+            --orange-primary: #FF7900;
+            --orange-glow: rgba(255, 121, 0, 0.4);
+            --bg-dark: #050505;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --text-main: #f8f8f8;
+            --text-dim: #b0b0b0;
+            --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Tajawal', 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--soft-white); overflow: hidden; height: 100vh; }
-        .slide-container { position: relative; height: 100vh; width: 100vw; }
-        .slide { position: absolute; top: 0; left: 0; height: 100%; width: 100%; display: none; flex-direction: column; justify-content: center; align-items: center; padding: 40px 8%; text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, var(--bg-dark) 100%); }
-        .slide.active { display: flex; animation: fadeIn 0.4s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .bilingual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; width: 100%; margin-top: 20px; }
-        .col-ar { text-align: right; border-right: 4px solid var(--orange-brand); padding-right: 25px; direction: rtl; }
-        .col-en { text-align: left; border-left: 4px solid white; padding-left: 25px; direction: ltr; font-family: 'Inter', sans-serif; }
-        .card { background: rgba(255, 121, 0, 0.07); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,121,0,0.3); margin-bottom: 15px; font-size: 0.95rem; line-height: 1.6; }
-        .stat-box { border: 2px dashed var(--orange-brand); padding: 12px; margin-top: 15px; border-radius: 10px; font-weight: 800; color: var(--orange-brand); font-size: 1.1rem; }
-        h1 { font-size: 3.2rem; color: white; margin-bottom: 10px; font-weight: 800; }
-        h2 { font-size: 1.8rem; margin-bottom: 15px; color: var(--orange-brand); text-transform: uppercase; }
-        .controls { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 25px; z-index: 1000; }
-        .btn { background: transparent; border: 2px solid var(--orange-brand); color: var(--orange-brand); padding: 12px 30px; cursor: pointer; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: var(--orange-brand); color: black; }
-        .badge { border: 1px solid var(--orange-brand); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; color: var(--orange-brand); margin-bottom: 20px; font-weight: bold; letter-spacing: 1px; }
-        a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
-        a:hover { border-bottom: 1px solid var(--orange-brand); }
-        .highlight-text { color: var(--orange-brand); font-weight: bold; }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Background Effects */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(255, 121, 0, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(255, 121, 0, 0.05) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        /* Slide Container */
+        .deck-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px 10%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Components */
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(255, 121, 0, 0.1);
+            border: 1px solid var(--orange-primary);
+            color: var(--orange-primary);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 30%, var(--orange-primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bilingual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 30px;
+        }
+
+        .col {
+            padding: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .col:hover {
+            border-color: var(--orange-primary);
+            background: rgba(255, 121, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .col-ar {
+            text-align: right;
+            direction: rtl;
+        }
+
+        .col-en {
+            text-align: left;
+            direction: ltr;
+            font-family: 'Outfit';
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .stat {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--orange-primary);
+            margin: 10px 0;
+            display: block;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-dim);
+        }
+
+        /* Controls */
+        .nav-controls {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 100px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: var(--orange-primary);
+            border-color: var(--orange-primary);
+            transform: scale(1.05);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--orange-primary);
+            box-shadow: 0 0 10px var(--orange-glow);
+            transition: width 0.3s;
+            z-index: 1000;
+        }
+
+        /* Specific Elements */
+        .efficiency-card {
+            background: linear-gradient(135deg, rgba(255, 121, 0, 0.2), transparent);
+            border: 2px solid var(--orange-primary);
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-glass);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<div class="slide-container">
-    <section class="slide active">
-        <div class="badge">Strategic Partnership Proposal | Orange Digital Center</div>
-        <h1>إعداد <span style="color: var(--orange-brand);">Edaad.io</span></h1>
-        <div class="bilingual-grid">
-            <div class="col-ar"><p>منظومة ذكاء اصطناعي سيادية ولدت في الأردن، تقود التحول الرقمي في إنتاج المحتوى التعليمي بمعايير عالمية وتقنيات <span class="highlight-text">Gemini 2.5</span>.</p></div>
-            <div class="col-en"><p>A sovereign AI ecosystem born in Jordan, leading the digital transformation of educational content with <span class="highlight-text">Gemini 2.5</span> global standards.</p></div>
-        </div>
-    </section>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="bg-gradient"></div>
 
-    <section class="slide">
-        <h2>رؤية التوسع الإقليمي | Regional Vision</h2>
-        <div class="bilingual-grid">
-            <div class="col-ar">
-                <div class="card">
-                    <strong>الأردن (المقر والابتكار):</strong> نرتكز على البنية التحتية في الأردن لتطوير تقنياتنا وتدريب الكوادر المحلية، بالشراكة مع وكيل كلية أكسفورد.
+    <div class="deck-container">
+        <!-- Slide 1: Hero -->
+        <section class="slide active" id="slide-1">
+            <div class="badge">Strategic Partnership | Orange Digital Center</div>
+            <h1><span class="gradient-text">إعداد Edaad AI</span><br>Future of Learning</h1>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <p>منظومة ذكاء اصطناعي سيادية متكاملة، تعتمد على تكامل نماذج <strong>Gemini 2.5</strong>، لتعيد
+                        صياغة إنتاج المحتوى التعليمي بمعايير عالمية.</p>
                 </div>
-                <div class="card">
-                    <strong>السعودية (سوق النمو):</strong> التوسع لتلبية الطلب الضخم في المملكة العربية السعودية ضمن رؤية 2030، وتصدير الابتكار الأردني للخارج.
-                </div>
-            </div>
-            <div class="col-en">
-                <div class="card">
-                    <strong>Jordan (Innovation Hub):</strong> Leveraging Jordan's talent pool to develop AI tech and partner with Oxford College agents.
-                </div>
-                <div class="card">
-                    <strong>KSA (Scaling Market):</strong> Expanding to meet the massive demand in Saudi Arabia (Vision 2030) and exporting Jordan-made innovation.
+                <div class="col col-en">
+                    <p>A sovereign AI ecosystem leveraging <strong>Gemini 2.5</strong> models, redefining educational
+                        content production with global standards.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="slide">
-        <h2>كفاءة الإنتاج الفائق | Hyper-Efficiency</h2>
-        <div class="bilingual-grid">
-            <div class="col-ar">
-                <div class="card">استخدام نماذج الاستدلال المتقدمة لتقليص مدة إنتاج الحقائب التدريبية من <span class="highlight-text">120 يوم</span> إلى <span class="highlight-text">3 أيام</span> فقط.</div>
-                <div class="stat-box">توفير 90% من التكلفة التشغيلية التقليدية</div>
+        <!-- Slide 2: The Pain Point -->
+        <section class="slide" id="slide-2">
+            <div class="badge">The Challenge | الفجوة</div>
+            <h2 style="font-size: 3rem;">لماذا الآن؟ | ?Why Now</h2>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <span class="feature-icon">⚠️</span>
+                    <h3>الأزمة الحالية</h3>
+                    <p>إنتاج دورة تدريبية احترافية يستغرق شهوراً ويكلف عشرات الآلاف، مع صعوبة بالغة في الوصول لذوي
+                        الاحتياجات الخاصة.</p>
+                </div>
+                <div class="col col-en">
+                    <span class="feature-icon">⌛</span>
+                    <h3>Traditional Bottleneck</h3>
+                    <p>Professional content takes months to produce, costs a fortune, and fails to meet accessibility
+                        standards for all learners.</p>
+                </div>
             </div>
-            <div class="col-en">
-                <div class="card">Utilizing advanced reasoning models to slash production time from <span class="highlight-text">120 days</span> to <span class="highlight-text">3 days</span>.</div>
-                <div class="stat-box">90% Reduction in traditional operational costs</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="slide">
-        <div class="bilingual-grid">
-            <div class="col-ar">
-                <h2 style="color: white;">سعد أبوشندي | Saad Abushendi</h2>
-                <div class="card">
-                    <p><strong>المؤسس والمدير التنفيذي</strong></p>
-                    <p>خبرة 21 عاماً في دمج التكنولوجيا بالتعليم</p>
-                    <hr style="margin: 15px 0; opacity: 0.2;">
+        <!-- Slide 3: Hyper-Efficiency -->
+        <section class="slide" id="slide-3">
+            <div class="badge">Performance | الكفاءة</div>
+            <div class="col efficiency-card" style="max-width: 800px; padding: 60px;">
+                <div class="bilingual-grid" style="grid-template-columns: 1fr; margin-top: 0;">
+                    <div style="text-align: center;">
+                        <p style="color: white; font-weight: bold;">انتاج الحقيبة التدريبية | Production Time</p>
+                        <div
+                            style="display: flex; justify-content: center; align-items: center; gap: 30px; margin: 20px 0;">
+                            <span style="text-decoration: line-through; opacity: 0.5; font-size: 2rem;">120 Days</span>
+                            <span style="font-size: 2.5rem;">➔</span>
+                            <span class="stat">3 Days</span>
+                        </div>
+                        <p class="gradient-text" style="font-size: 1.5rem; font-weight: 800;">توفير 90% من التكاليف
+                            التشغيلية</p>
+                        <p style="margin-top: 10px;">90% Operational Cost Reduction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Technology Stack -->
+        <section class="slide" id="slide-4">
+            <div class="badge">Ecosystem | المنظومة التقنية</div>
+            <h2 style="margin-bottom: 30px;">Gemini Series 2 Native</h2>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <h3>أحدث تقنيات الاستدلال</h3>
+                    <div class="tag-row">
+                        <span class="tag">Gemini 2.5 Series</span>
+                        <span class="tag">Vertex AI Cloud</span>
+                        <span class="tag">Next: Gemini 3.0</span>
+                    </div>
+                    <p style="margin-top: 15px;">نعتمد بشكل كامل على جيل 2.0 و 2.5 من نماذج Gemini، مع استراتيجية تقنية
+                        جاهزة للانتقال لجيل 3.0 فور صدوره لضمان الريادة الإقليمية في الذكاء الاصطناعي التعليمي.</p>
+                </div>
+                <div class="col col-en">
+                    <h3>Advanced Reasoning Engine</h3>
+                    <div class="tag-row">
+                        <span class="tag">Gemini 2.5 Series</span>
+                        <span class="tag">Vertex AI Cloud</span>
+                        <span class="tag">Next: Gemini 3.0</span>
+                    </div>
+                    <p style="margin-top: 15px;">Fully powered by Gemini 2.0 & 2.5 series, with a technical roadmap
+                        ready to integrate Gemini 3.0 upon release to maintain regional leadership in educational AI.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Accessibility Innovation -->
+        <section class="slide" id="slide-5">
+            <div class="badge">Innovation | الابتكار</div>
+            <h2>التعليم للجميع | Inclusive Learning</h2>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <span class="feature-icon">🤟</span>
+                    <h3>لغة الإشارة وتتبع اليد</h3>
+                    <p>أفاتار ذكي لترجمة المحتوى فورياً، وتحكم كامل بالمنصة عبر إيماءات اليد بدون لمس.</p>
+                </div>
+                <div class="col col-en">
+                    <span class="feature-icon">🖐️</span>
+                    <h3>Sign Language & Hand Tracking</h3>
+                    <p>AI Avatars for instant translation and touchless navigation via hand gestures.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Vision & Scaling -->
+        <section class="slide" id="slide-6">
+            <div class="badge">Growth | التوسـع</div>
+            <h2>Road to 2030</h2>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <p><strong>الأردن:</strong> مركز الابتكار وتطوير التقنيات السيادية بالتعاون مع وكيل كلية أكسفورد.
+                    </p>
+                    <p style="margin-top: 10px;"><strong>السعودية:</strong> التوسع الضخم لتلبية احتياجات السوق السعودي
+                        ضمن رؤية 2030.</p>
+                </div>
+                <div class="col col-en">
+                    <p><strong>Jordan:</strong> Innovation hub for sovereign AI development in partnership with Oxford
+                        College agent.</p>
+                    <p style="margin-top: 10px;"><strong>KSA:</strong> Exponential scaling to meet Saudi Vision 2030
+                        educational demands.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Traction & Readiness -->
+        <section class="slide" id="slide-6">
+            <div class="badge">Milestones | الجاهزية</div>
+            <h2>أكثر من مجرد فكرة | Product Ready</h2>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <span class="stat">90%</span>
+                    <p><strong>جاهزية المنصة:</strong> البنية التحتية، لوحات التحكم، والمحركات الأساسية مكتملة وجاهزة
+                        للتشغيل الفوري.</p>
+                    <p style="margin-top: 5px;">نظام B2B يدعم آلاف المؤسسات التعليمية بعلامات تجارية مستقلة
+                        (White-Labeling).</p>
+                </div>
+                <div class="col col-en">
+                    <span class="stat">90%</span>
+                    <p><strong>Product Readiness:</strong> Core Infrastructure, Dashboards, and AI engines are fully
+                        developed and ready for deployment.</p>
+                    <p style="margin-top: 5px;">B2B Multi-tenancy architecture supporting thousands of schools with
+                        independent branding.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Market Opportunity -->
+        <section class="slide" id="slide-7">
+            <div class="badge">Opportunity | الفرصة</div>
+            <h2>سوق واعد وطموح | Market Vision</h2>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <span class="feature-icon">🚀</span>
+                    <h3>التحول الرقمي 2030</h3>
+                    <p>الطلب المتزايد في السعودية والأردن على حلول التعليم الذكي يتجاوز المليارات سنوياً.</p>
+                    <p>نستهدف سد الفجوة بين المحتوى التقليدي والمتطلبات التقنية الحديثة.</p>
+                </div>
+                <div class="col col-en">
+                    <span class="feature-icon">📈</span>
+                    <h3>Growth Trajectory</h3>
+                    <p>The rising demand for AI-driven education in KSA & Jordan is a multi-billion dollar opportunity.
+                    </p>
+                    <p>We bridge the gap between legacy content and modern technical requirements.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: The Ask & Synergy -->
+        <section class="slide" id="slide-8">
+            <div class="badge">The Ask | الشراكة مع أورانج</div>
+            <h2>قوة الشراكة | Power of Synergy</h2>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <p>🔹 <strong>البنية التحتية:</strong> الاستفادة من سحابة أورانج وخدمات 5G لتشغيل استوديو الفيديو
+                        بدقة فائقة.</p>
+                    <p>🔹 <strong>التوسع:</strong> الوصول إلى شبكة عملاء أورانج في قطاع الأعمال والتعليم (B2B).</p>
+                    <p>🔹 <strong>المصداقية:</strong> اعتماد "أورانج" كشريك استراتيجي يسرع دخولنا للأسواق العالمية.</p>
+                </div>
+                <div class="col col-en">
+                    <p>🔹 <strong>Infrastructure:</strong> Leveraging Orange Cloud & 5G to power our high-def AI Video
+                        Studio.</p>
+                    <p>🔹 <strong>Access:</strong> Reaching Orange's massive enterprise & education customer base (B2B).
+                    </p>
+                    <p>🔹 <strong>Scaling:</strong> Partnering with Orange accelerates our expansion into global
+                        markets.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Demo -->
+        <section class="slide" id="slide-9">
+            <div class="badge">Validation | الديمو</div>
+            <h2>Proof of Concept | See it in Action</h2>
+            <div style="margin-top: 30px;">
+                <a href="https://youtu.be/6-eME8OmoSw" target="_blank"
+                    style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #000; padding: 15px 30px; border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s;">
+                    <svg width="30" height="30" viewBox="0 0 24 24">
+                        <path fill="red"
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                    Watch YouTube Demo (Arabic)
+                </a>
+                <div class="bilingual-grid">
+                    <div class="card col-ar">
+                        <p>الديمو المرفق باللغة العربية. نؤكد أن المنصة تدعم حالياً <strong>الدبلجة الآلية للغة
+                                الإنجليزية</strong> وغيرها، مستضافة بالكامل على خوادمنا الخاصة، مما يثبت قدرتنا السيادية
+                            على توطين المحتوى لأي لغة عالمياً.</p>
+                    </div>
+                    <div class="card col-en">
+                        <p>The attached demo is in Arabic. Please note our platform natively supports <strong>Automated
+                                English Dubbing</strong> (and more) hosted on our private servers, proving our sovereign
+                            capability to localize content into any global language.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Partnership & Contact -->
+        <section class="slide" id="slide-10">
+            <div class="badge">Collaboration | الشـراكة</div>
+            <h1>Let's Build with <span style="color: var(--orange-primary);">Orange</span></h1>
+            <div class="bilingual-grid">
+                <div class="col col-ar">
+                    <h3>سعد أبوشندي</h3>
+                    <p>المؤسس والمدير التنفيذي (21 عام خبرة)</p>
                     <p>📞 00962775379898</p>
-                    <p>📧 <a href="mailto:saad.abushendi@edaad.io">saad.abushendi@edaad.io</a></p>
+                    <p>📧 <a href="mailto:saad.abushendi@edaad.io" target="_blank">saad.abushendi@edaad.io</a></p>
                 </div>
-            </div>
-            <div class="col-en">
-                <h2 style="color: var(--orange-brand);">Get in Touch</h2>
-                <div class="card">
-                    <p><strong>Edaad AI Ecosystem</strong></p>
+                <div class="col col-en">
+                    <h3>Contact Edaad</h3>
                     <p>🌐 <a href="https://www.edaad.io" target="_blank">www.edaad.io</a></p>
-                    <p>👤 <a href="https://www.linkedin.com/in/saad-abushendi/" target="_blank">Founder LinkedIn</a></p>
-                    <p>🏢 <a href="https://www.linkedin.com/company/edaad-ai" target="_blank">Company LinkedIn</a></p>
+                    <p>🔗 <a href="https://linkedin.com/company/edaad-ai"
+                            target="_blank">linkedin.com/company/edaad-ai</a></p>
+                    <p>📍 Jordan | Global Expansion</p>
                 </div>
             </div>
-        </div>
-        <div style="margin-top: 25px;" class="badge">A Partner Candidate for Orange Digital Center</div>
-    </section>
-</div>
+            <div style="margin-top: 30px;">
+                <p style="color: white; font-weight: bold;">الهدف: تدشين أول مركز تميز للذكاء الاصطناعي التعليمي مع
+                    أورانج</p>
+            </div>
+        </section>
+    </div>
 
-<div class="controls">
-    <button class="btn" onclick="moveSlide(-1)">السابق / Prev</button>
-    <button class="btn" onclick="moveSlide(1)">التالي / Next</button>
-</div>
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="moveSlide(-1)">Back / السابق</button>
+        <button class="nav-btn" onclick="moveSlide(1)" style="background: var(--orange-primary);">Next / التالي</button>
+    </div>
 
-<script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slide');
-    function moveSlide(step) {
-        slides[current].classList.remove('active');
-        current = (current + step + slides.length) % slides.length;
-        slides[current].classList.add('active');
-    }
-    // دعم التنقل بلوحة المفاتيح
-    window.addEventListener('keydown', (e) => {
-        if(e.key === "ArrowLeft" || e.key === " ") moveSlide(1);
-        if(e.key === "ArrowRight") moveSlide(-1);
-    });
-</script>
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+
+        function updateProgress() {
+            const progress = ((current + 1) / slides.length) * 100;
+            progressBar.style.width = progress + '%';
+        }
+
+        function moveSlide(step) {
+            slides[current].classList.remove('active');
+            current = (current + step + slides.length) % slides.length;
+            slides[current].classList.add('active');
+            updateProgress();
+        }
+
+        // Keyboard support
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowLeft" || e.key === " ") moveSlide(1);
+            if (e.key === "ArrowRight") moveSlide(-1);
+        });
+
+        // Initialize progress
+        updateProgress();
+    </script>
 </body>
+
 </html>
