@@ -4,774 +4,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edaad AI | Orange Strategic Pitch</title>
-    <meta name="description"
-        content="Edaad AI - Sovereign AI Ecosystem for Educational content. Strategic Partnership Proposal for Orange Digital Center.">
-    <meta property="og:title" content="Edaad AI | Orange Strategic Pitch">
-    <meta property="og:description" content="Redefining educational content production with Gemini 2.5 Native AI.">
-    <meta property="og:image" content="https://www.edaad.io/assets/logo.png">
-    <!-- Replace with actual logo path if available -->
-    <!-- Google Fonts -->
+    <title>Edaad AI | Orange OSVP Project Dossier (Restructured)</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Outfit:wght@300;400;600;800&display=swap"
         rel="stylesheet">
     <style>
         :root {
             --orange-primary: #FF7900;
-            --orange-glow: rgba(255, 121, 0, 0.4);
-            --bg-dark: #050505;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --border-glass: rgba(255, 255, 255, 0.1);
-            --text-main: #f8f8f8;
-            --text-dim: #b0b0b0;
-            --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            --orange-soft: #fff5eb;
+            --bg-body: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #555555;
+            --text-en: #666666;
+            --border-color: #eeeeee;
         }
 
-        /* Reset & Base */
+        /* Essential Reset for PDF Printing */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
         }
 
         body {
-            font-family: 'Tajawal', 'Outfit', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Background Effects */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 80% 20%, rgba(255, 121, 0, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(255, 121, 0, 0.05) 0%, transparent 40%);
-            z-index: -1;
-        }
-
-        /* Slide Container */
-        .deck-container {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            min-height: 100vh;
-            padding: 60px 5% 150px;
-            justify-content: center;
-
-            /* Safe zone for nav */
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition);
-            overflow-y: auto;
-            /* Internal scroll */
-        }
-
-        .slide.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Components */
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(255, 121, 0, 0.1);
-            border: 1px solid var(--orange-primary);
-            color: var(--orange-primary);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            font-weight: 900;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #fff 30%, var(--orange-primary) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .bilingual-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 30px;
-        }
-
-        .col {
-            padding: 30px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .col:hover {
-            border-color: var(--orange-primary);
-            background: rgba(255, 121, 0, 0.05);
-            transform: translateY(-5px);
-        }
-
-        .col-ar {
-            text-align: right;
-            direction: rtl;
-        }
-
-        .col-en {
-            text-align: left;
-            direction: ltr;
-            font-family: 'Outfit';
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .stat {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--orange-primary);
-            margin: 10px 0;
-            display: block;
-        }
-
-        p {
-            font-size: 1.1rem;
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--text-dark);
             line-height: 1.7;
-            color: var(--text-dim);
+            padding: 40px 0;
         }
 
-        /* Controls */
-        .nav-controls {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 100;
+        .page {
+            width: 210mm;
+            min-height: 297mm; /* Changed from fixed height to min-height */
+            padding: 20mm 20mm 35mm; /* Extra bottom padding for footer space */
+            margin: 0 auto 30px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: block; /* Removed flex to allow natural text flow */
         }
 
-        .nav-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
+        /* Stacked Layout Styling */
+        .section-block {
+            margin-bottom: 30px;
+        }
+
+        .lang-en {
+            direction: ltr;
+            text-align: justify;
+            text-justify: inter-word;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-en);
+            font-size: 0.9rem;
+            margin-top: 8px;
+            border-left: 3px solid var(--orange-soft);
+            padding-left: 15px;
+        }
+
+        .lang-ar {
+            direction: rtl;
+            text-align: justify;
+            text-justify: inter-word;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        h1, h2, h3 {
+            color: var(--orange-primary);
+            margin-bottom: 15px;
+        }
+
+        .title-ar { font-size: 2.2rem; font-weight: 900; line-height: 1.2; }
+        .title-en { font-size: 1.2rem; font-weight: 400; opacity: 0.7; font-family: 'Outfit'; margin-top: -10px; margin-bottom: 20px; }
+
+        h2 { font-size: 1.5rem; border-bottom: 2px solid var(--orange-primary); display: inline-block; padding-bottom: 4px; margin-top: 25px; margin-bottom: 20px; }
+        h3 { font-size: 1.15rem; margin-top: 20px; color: var(--text-dark); }
+
+        .highlight-box {
+            background: var(--orange-soft);
+            border-right: 5px solid var(--orange-primary);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .badge {
+            background: var(--orange-primary);
             color: white;
-            padding: 15px 30px;
-            border-radius: 100px;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
-            font-weight: 600;
-        }
-
-        .nav-btn:hover {
-            background: var(--orange-primary);
-            border-color: var(--orange-primary);
-            transform: scale(1.05);
-        }
-
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--orange-primary);
-            box-shadow: 0 0 10px var(--orange-glow);
-            transition: width 0.3s;
-            z-index: 1000;
-        }
-
-        /* Specific Elements */
-        .efficiency-card {
-            background: linear-gradient(135deg, rgba(255, 121, 0, 0.2), transparent);
-            border: 2px solid var(--orange-primary);
-        }
-
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-            justify-content: center;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.05);
             padding: 4px 12px;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 0.8rem;
-            border: 1px solid var(--border-glass);
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
         }
 
-        /* Pulse Animation */
-        @keyframes pulse-orange {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 121, 0, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 121, 0, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 121, 0, 0);
-            }
-        }
-
-        .pulse-orange {
-            animation: pulse-orange 2s infinite;
-        }
-
-        /* Roadmap Timeline */
-        .roadmap-container {
+        .footer {
+            position: absolute;
+            bottom: 15mm;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 0 20mm;
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
+            font-size: 0.8rem;
+            color: var(--text-light);
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-top: 20px;
+            background: white;
         }
 
-        .roadmap-step {
-            flex: 1;
-            padding: 15px;
-            background: rgba(255, 121, 0, 0.03);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            margin: 0 5px;
-        }
-
-        .roadmap-step.active {
-            border-color: var(--orange-primary);
-            background: rgba(255, 121, 0, 0.08);
-        }
-
-        /* Progress Visual */
-        .progress-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: conic-gradient(var(--orange-primary) 90%, rgba(255, 255, 255, 0.1) 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            position: relative;
-        }
-
-        .progress-circle::after {
-            content: "";
-            position: absolute;
-            width: 65px;
-            height: 65px;
-            background: var(--bg-dark);
-            border-radius: 50%;
-        }
-
-        .progress-circle span {
-            position: relative;
-            z-index: 10;
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-
-        /* Market Graph (Orange) */
-        .market-graph-orange {
-            display: flex;
-            align-items: flex-end;
-            gap: 10px;
-            height: 100px;
-            margin-top: 20px;
-            padding: 10px;
-            border-bottom: 1px solid var(--border-glass);
-        }
-
-        .bar-orange {
-            flex: 1;
-            background: var(--orange-primary);
-            border-radius: 4px 4px 0 0;
-            opacity: 0.6;
-            transition: 0.3s;
-        }
-
-        .bar-orange:hover {
-            opacity: 1;
-            transform: scaleY(1.05);
-        }
-
-        /* Synergy Grid */
-        .synergy-grid {
+        .logo-img { height: 55px; }
+        
+        /* SWOT Styling */
+        .swot-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-top: 20px;
         }
-
-        .synergy-item {
+        .swot-item {
             padding: 15px;
-            background: rgba(255, 121, 0, 0.05);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+        .swot-s { background-color: #f3faf5; border-color: #34A853; }
+        .swot-w { background-color: #fffcf0; border-color: #FBBC04; }
+        .swot-o { background-color: #f4f8ff; border-color: #4285F4; }
+        .swot-t { background-color: #fff5f4; border-color: #EA4335; }
+
+        /* Advanced Financial Table */
+        .table-container {
+            margin-top: 25px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        th, td {
+            padding: 14px 10px;
+            border: 1px solid var(--border-color);
             text-align: center;
         }
+        th { background: #f8f9fa; color: var(--text-dark); font-weight: 800; }
+        .row-total { background: var(--orange-soft); font-weight: 800; color: var(--orange-primary); }
+        .label-cell { text-align: right; font-weight: 700; background: #fafafa; }
 
-        .brand-highlight {
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 0 0 15px rgba(255, 121, 0, 0.4);
-            letter-spacing: 1px;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .hero-logo {
-            width: 120px;
+        /* Team Card */
+        .team-card {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 12px;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+            border: 1px solid var(--border-color);
+        }
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            background: var(--orange-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: white;
+            font-size: 2rem;
         }
 
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-            .slide {
-                padding: 50px;
-                justify-content: flex-start;
-                padding-bottom: 180px !important;
-                overflow-y: auto;
-
-            }
-
-            h1 {
-                font-size: 1.8rem !important;
-                line-height: 1.2;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .bilingual-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .synergy-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .col {
-                padding: 20px;
-            }
-
-            .efficiency-card {
-                padding: 30px !important;
-            }
-
-            .roadmap-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .roadmap-step {
-                width: 100%;
+        @media print {
+            @page {
+                size: A4;
                 margin: 0;
-                padding: 12px;
             }
+            body { 
+                padding: 0; 
+                background: none; 
+            }
+            .page { 
+                margin: 0; 
+                box-shadow: none; 
+                page-break-after: always; 
+                width: 210mm;
+                min-height: 297mm;
+                height: auto;
+                padding: 20mm 20mm 35mm;
+                border: none;
+                display: block;
+            }
+            .section-block, .highlight-box, table, .team-card {
+                break-inside: avoid;
+            }
+            .footer {
+                position: absolute;
+                bottom: 15mm;
+            }
+        }
 
-            .nav-controls {
-                bottom: 20px;
-                background: rgba(5, 5, 5, 0.8);
-                width: 95%;
-                gap: 10px;
-                padding: 10px;
-                border-radius: 50px;
-                backdrop-filter: blur(5px);
-            }
-
-            .nav-btn {
-                padding: 10px 15px;
-                font-size: 0.85rem;
-                flex: 1;
-            }
-
-            .hero-logo {
-                width: 80px;
-                margin-bottom: 15px;
-            }
-
-            .badge {
-                margin-bottom: 15px;
-                padding: 6px 15px;
-                font-size: 0.75rem;
-            }
-
-            .stat {
-                font-size: 2.2rem;
-            }
-
-            .market-graph-orange {
-                height: 80px;
-            }
-
-            .progress-circle {
-                width: 60px;
-                height: 60px;
-            }
-
-            .progress-circle::after {
-                width: 45px;
-                height: 45px;
-            }
-
-            .progress-circle span {
-                font-size: 1rem;
-            }
+        @media screen and (max-width: 210mm) {
+            body { padding: 10px; }
+            .page { width: 100%; height: auto; padding: 15mm; }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="progress-bar" id="progressBar"></div>
-    <div class="bg-gradient"></div>
+    <!-- PAGE 1: EXECUTIVE SUMMARY -->
+    <div class="page">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 40px;">
+            <img src="../logo.png" alt="Edaad Logo" class="logo-img">
+            <div style="text-align: left; font-family: 'Outfit'; color: var(--text-light); line-height: 1.3;">
+                <strong style="color: var(--orange-primary);">OSVP PROJECT DOSSIER 2026</strong><br>
+                Orange Social Venture Prize<br>
+                Edaad AI Startup
+            </div>
+        </div>
 
-    <div class="deck-container">
-        <!-- Slide 1: Hero -->
-        <section class="slide active" id="slide-1">
-            <div class="badge pulse-orange">Strategic Partnership | Orange Digital Center</div>
-            <img src="../logo.png" alt="Edaad Logo" class="hero-logo">
-            <h1><span class="gradient-text"><span class="brand-highlight">إعداد Edaad AI</span></span><br>Future of
-                Learning</h1>
-            <div class="bilingual-grid">
-                <div class="col col-ar">
-                    <p>منظومة ذكاء اصطناعي سيادية متكاملة، تعتمد على تكامل نماذج <strong>Gemini 2.5</strong>، لتعيد
-                        صياغة إنتاج المحتوى التعليمي بمعايير عالمية.</p>
-                </div>
-                <div class="col col-en">
-                    <p>A sovereign AI ecosystem leveraging <strong>Gemini 2.5</strong> models, redefining educational
-                        content production with global standards.</p>
-                </div>
-            </div>
-        </section>
+        <div class="section-block">
+            <div class="badge">ملف تعريف المشروع | Project Identity</div>
+            <h1 class="title-ar">إعداد Edaad AI</h1>
+            <h1 class="title-en">Sovereign AI Ecosystem for Education</h1>
+        </div>
 
-        <!-- Slide 2: The Pain Point -->
-        <section class="slide" id="slide-2">
-            <div class="badge">The Challenge | الفجوة</div>
-            <h2 style="font-size: 3rem;">لماذا الآن؟ </h2>
-            <h2 style="font-size: 3rem;"> ?Why Now</h2>
-            <div class="bilingual-grid">
-                <div class="col col-ar">
-                    <span class="feature-icon">⚠️</span>
-                    <h3>الأزمة الحالية</h3>
-                    <p>إنتاج دورة تدريبية احترافية يستغرق شهوراً ويكلف عشرات الآلاف، مع صعوبة بالغة في الوصول لذوي
-                        الاحتياجات الخاصة.</p>
-                </div>
-                <div class="col col-en">
-                    <span class="feature-icon">⌛</span>
-                    <h3>Traditional Bottleneck</h3>
-                    <p>Professional content takes months to produce, costs a fortune, and fails to meet accessibility
-                        standards for all learners.</p>
+        <div class="section-block">
+            <h2>1. ملخص المشروع (Project Summary)</h2>
+            
+            <div class="sub-section">
+                <h3 class="lang-ar">المشكلة والسياق:</h3>
+                <p class="lang-ar">يواجه العالم العربي فجوة تعليمية وتقنية متسارعة؛ حيث يتطلب إنتاج المحتوى التعليمي والمهني عالي الجودة وقتاً طويلاً وتكاليف باهظة، مما يعيق المؤسسات من مواكبة التحول الرقمي. تفتقر المكتبة العربية لتوظيف تقنيات تخدم ذوي الاحتياجات الخاصة بشكل آلي وسلس، مما يؤدي إلى تهميش فئات واسعة من المتعلمين.</p>
+                <div class="lang-en">
+                    <strong>Challenge & Context:</strong> The Arab world faces a widening educational gap. Producing high-quality vocational content takes months and incurs massive costs, hindering digital transformation. Furthermore, Arabic resources lack automated tools for special needs learners, leading to marginalization.
                 </div>
             </div>
-        </section>
 
-        <!-- Slide 3: Hyper-Efficiency -->
-        <section class="slide" id="slide-3">
-            <div class="badge">Performance | الكفاءة</div>
-            <div class="col efficiency-card" style="max-width: 800px; padding: 60px;">
-                <div class="bilingual-grid" style="grid-template-columns: 1fr; margin-top: 0;">
-                    <div style="text-align: center;">
-                        <p style="color: white; font-weight: bold;">انتاج الحقيبة التدريبية | Production Time</p>
-                        <div
-                            style="display: flex; justify-content: center; align-items: center; gap: 30px; margin: 20px 0;">
-                            <span style="text-decoration: line-through; opacity: 0.5; font-size: 2rem;">120 Days</span>
-                            <span style="font-size: 2.5rem;">➔</span>
-                            <span class="stat">3 Days</span>
-                        </div>
-                        <p class="gradient-text" style="font-size: 1.5rem; font-weight: 800;">توفير 90% من التكاليف
-                            التشغيلية</p>
-                        <p style="margin-top: 10px;">90% Operational Cost Reduction</p>
-                    </div>
+            <div class="sub-section" style="margin-top: 20px;">
+                <h3 class="lang-ar">الحل الابتكاري:</h3>
+                <p class="lang-ar">منصة "إعداد" هي منظومة ذكاء اصطناعي سيادي مبنية بشكل أساسي على نماذج Gemini 2.5. بالإضافة إلى تقليص وقت الإنتاج بنسبة 90%، توفر المنصة الآن <strong>مختبرات واقع معزز (AR Labs)</strong> ومساعداً تربوياً ذكياً <strong>(AI Tutor)</strong> يقدم دعماً شخصياً لكل طالب، مما يحول التعلم الرقمي إلى تجربة تفاعلية غامرة.</p>
+                <div class="lang-en">
+                    <strong>Innovative Solution:</strong> Edaad AI is a sovereign AI ecosystem natively built on Gemini 2.5. In addition to slashing production time by 90%, the platform now provides <strong>Augmented Reality Labs (AR)</strong> and a <strong>Proactive AI Tutor</strong> that offers personalized support for every student, transforming digital learning into a truly immersive and interactive experience.
                 </div>
             </div>
-        </section>
 
-        <!-- Slide 4: Technology Stack -->
-        <section class="slide" id="slide-4">
-            <div class="badge">Ecosystem | المنظومة التقنية</div>
-            <h2 style="margin-bottom: 30px;">Gemini Series 2 Native</h2>
-            <div class="bilingual-grid">
-                <div class="col col-ar">
-                    <h3>أحدث تقنيات الاستدلال</h3>
-                    <div class="tag-row">
-                        <span class="tag">Gemini 2.5 Series</span>
-                        <span class="tag">Vertex AI Cloud</span>
-                        <span class="tag">Next: Gemini 3.0</span>
-                    </div>
-                    <p style="margin-top: 15px;">نعتمد بشكل كامل على جيل 2.0 و 2.5 من نماذج Gemini، مع استراتيجية تقنية
-                        جاهزة للانتقال لجيل 3.0 فور صدوره لضمان الريادة الإقليمية في الذكاء الاصطناعي التعليمي.</p>
-                </div>
-                <div class="col col-en">
-                    <h3>Advanced Reasoning Engine</h3>
-                    <div class="roadmap-container">
-                        <div class="roadmap-step active">
-                            <small>Current</small>
-                            <div style="font-weight: bold; color: var(--orange-primary);">Gemini 2.5</div>
-                        </div>
-                        <div class="roadmap-step">
-                            <small>Scaling</small>
-                            <div style="font-weight: bold;">Multi-Language</div>
-                        </div>
-                        <div class="roadmap-step" style="opacity: 0.5; border-style: dashed;">
-                            <small>Goal</small>
-                            <div style="font-weight: bold;">Gemini 3.0</div>
-                        </div>
-                    </div>
-                    <p style="margin-top: 15px;">Fully powered by Gemini 2.0 & 2.5 series, with a technical roadmap
-                        ready to integrate Gemini 3.0 upon release to maintain regional leadership in educational AI.
-                    </p>
+            <div class="highlight-box">
+                <h3 class="lang-ar" style="margin-top: 0;">الشمولية والواقع المعزز (Accessibility & AR):</h3>
+                <p class="lang-ar">لقد بدأنا فعلياً بدمج تقنيات الواقع المعزز (AR Studio) لتبسيط المفاهيم المعقدة، مع تطوير "المساعد الذكي" ليدعم ذوي الاحتياجات الخاصة عبر واجهات تحكم مرنة وتوجيه صوتي وتفاعلي متطور.</p>
+                <div class="lang-en">
+                    <strong>Accessibility & AR Vision:</strong> We have actively begun integrating Augmented Reality technologies (AR Studio) to simplify complex concepts, while developing the "Smart Assistant" to support learners with special needs through flexible interfaces, high-fidelity voice guidance, and advanced interactive support.
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Slide 5: Accessibility Innovation -->
-        <section class="slide" id="slide-5">
-            <div class="badge">Innovation | الابتكار</div>
-            <h2>التعليم للجميع | Inclusive Learning</h2>
-            <div class="bilingual-grid">
-                <div class="col col-ar">
-                    <span class="feature-icon">🤟</span>
-                    <h3>لغة الإشارة وتتبع اليد</h3>
-                    <p>أفاتار ذكي لترجمة المحتوى فورياً، وتحكم كامل بالمنصة عبر إيماءات اليد بدون لمس.</p>
-                </div>
-                <div class="col col-en">
-                    <span class="feature-icon">🖐️</span>
-                    <h3>Sign Language & Hand Tracking</h3>
-                    <p>AI Avatars for instant translation and touchless navigation via hand gestures.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 6: Vision & Scaling -->
-        <section class="slide" id="slide-6">
-            <div class="badge">Growth | التوسـع</div>
-            <h2>Road to 2030</h2>
-            <div class="bilingual-grid">
-                <div class="col col-ar">
-                    <p><strong>الأردن:</strong> مركز الابتكار وتطوير التقنيات السيادية بالتعاون مع وكيل كلية أكسفورد.
-                    </p>
-                    <p style="margin-top: 10px;"><strong>السعودية:</strong> التوسع الضخم لتلبية احتياجات السوق السعودي
-                        ضمن رؤية 2030.</p>
-                </div>
-                <div class="col col-en">
-                    <p><strong>Jordan:</strong> Innovation hub for sovereign AI development in partnership with Oxford
-                        College agent.</p>
-                    <p style="margin-top: 10px;"><strong>KSA:</strong> Exponential scaling to meet Saudi Vision 2030
-                        educational demands.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 6: Traction & Readiness -->
-        <section class="slide" id="slide-6">
-            <div class="badge">Milestones | الجاهزية</div>
-            <h2>أكثر من مجرد فكرة | Product Ready</h2>
-            <div class="bilingual-grid">
-                <div class="col col-ar">
-                    <div class="progress-circle"><span>90%</span></div>
-                    <p><strong>جاهزية المنصة:</strong> البنية التحتية، لوحات التحكم، والمحركات الأساسية مكتملة وجاهزة
-                        للتشغيل الفوري.</p>
-                </div>
-                <div class="col col-en">
-                    <div class="progress-circle"><span>90%</span></div>
-                    <p><strong>Product Readiness:</strong> Core Infrastructure, Dashboards, and AI engines are fully
-                        developed and ready for deployment.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 7: Market Opportunity -->
-        <section class="slide" id="slide-7">
-            <div class="badge">Opportunity | الفرصة</div>
-            <h2>سوق واعد وطموح | Market Vision</h2>
-            <div class="bilingual-grid">
-                <div class="col col-ar" style="padding: 20px;">
-                    <span class="feature-icon">🚀</span>
-                    <h3>التحول الرقمي 2030</h3>
-                    <p>الطلب المتزايد على حلول التعليم الذكي يتجاوز المليارات سنوياً في المنطقة.</p>
-                </div>
-                <div class="col col-en" style="padding: 20px;">
-                    <div class="market-graph-orange">
-                        <div class="bar-orange" style="height: 30%;"></div>
-                        <div class="bar-orange" style="height: 50%;"></div>
-                        <div class="bar-orange" style="height: 80%;"></div>
-                        <div class="bar-orange" style="height: 100%; box-shadow: 0 0 15px var(--orange-glow);"></div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 5px;">
-                        <span>2024</span><span>2026</span><span>2028</span><span>2030</span>
-                    </div>
-                    <p style="margin-top: 10px;">Exponential growth targeting the MENA EdTech market.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 8: The Ask & Synergy -->
-        <section class="slide" id="slide-8">
-            <div class="badge">The Ask | الشراكة مع أورانج</div>
-            <h2>قوة الشراكة | Power of Synergy</h2>
-            <div class="synergy-grid">
-                <div class="synergy-item">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">☁️</div>
-                    <strong>Infrastructure</strong>
-                    <p>Orange 5G & Cloud</p>
-                </div>
-                <div class="synergy-item">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🤝</div>
-                    <strong>B2B Access</strong>
-                    <p>Orange Enterprise Network</p>
-                </div>
-                <div class="synergy-item">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🌍</div>
-                    <strong>Scale</strong>
-                    <p>Expansion to 22 countries</p>
-                </div>
-            </div>
-            <div class="bilingual-grid" style="margin-top: 20px;">
-                <div class="col col-ar" style="padding: 15px;">
-                    <p>نطمح لتكامل استراتيجي يحول "<span class="brand-highlight">إعداد</span>" إلى الحل المعياري في شبكة
-                        أورانج الإقليمية.</p>
-                </div>
-                <div class="col col-en" style="padding: 15px;">
-                    <p>We aim for a strategic integration that establishes <span class="brand-highlight">Edaad</span> as
-                        the standard solution across Orange Regional network.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 9: Demo -->
-        <section class="slide" id="slide-9">
-            <div class="badge">Validation | الديمو</div>
-            <h2>Proof of Concept | See it in Action</h2>
-            <div style="margin-top: 30px;">
-                <a href="https://youtu.be/6-eME8OmoSw" target="_blank"
-                    style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #000; padding: 15px 30px; border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s;">
-                    <svg width="30" height="30" viewBox="0 0 24 24">
-                        <path fill="red"
-                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                    </svg>
-                    Watch YouTube Demo (Arabic)
-                </a>
-                <div class="bilingual-grid">
-                    <div class="card col-ar">
-                        <p>الديمو المرفق باللغة العربية. نؤكد أن المنصة تدعم حالياً <strong>الدبلجة الآلية للغة
-                                الإنجليزية</strong> وغيرها، مستضافة بالكامل على خوادمنا الخاصة، مما يثبت قدرتنا السيادية
-                            على توطين المحتوى لأي لغة عالمياً.</p>
-                    </div>
-                    <div class="card col-en">
-                        <p>The attached demo is in Arabic. Please note our platform natively supports <strong>Automated
-                                English Dubbing</strong> (and more) hosted on our private servers, proving our sovereign
-                            capability to localize content into any global language.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 10: Partnership & Contact -->
-        <section class="slide" id="slide-10">
-            <div class="badge">Collaboration | الشـراكة</div>
-            <img src="../logo.png" alt="Edaad Logo" class="hero-logo" style="width: 80px;">
-            <h1>Let's Build with <span style="color: var(--orange-primary);"><span
-                        class="brand-highlight">Edaad</span></span></h1>
-            <div class="bilingual-grid">
-                <div class="col col-ar">
-                    <h3>سعد أبوشندي</h3>
-                    <p>المؤسس والمدير التنفيذي (21 عام خبرة)</p>
-                    <p>📞 00962775379898</p>
-                    <p>📧 <a href="mailto:saad.abushendi@edaad.io" target="_blank">saad.abushendi@edaad.io</a></p>
-                </div>
-                <div class="col col-en">
-                    <h3>Contact Edaad</h3>
-                    <p>🌐 <a href="https://www.edaad.io" target="_blank">www.edaad.io</a></p>
-                    <p>🔗 <a href="https://linkedin.com/company/edaad-ai"
-                            target="_blank">linkedin.com/company/edaad-ai</a></p>
-                    <p>📍 Jordan | Global Expansion</p>
-                </div>
-            </div>
-            <div style="margin-top: 30px;">
-                <p style="color: white; font-weight: bold;">الهدف: تدشين أول مركز تميز للذكاء الاصطناعي التعليمي مع
-                    أورانج</p>
-            </div>
-        </section>
+        <div class="footer">
+            <span>Orange OSVP 2026 | Confidential</span>
+            <span>الصفحة 1 من 4</span>
+        </div>
     </div>
 
-    <div class="nav-controls">
-        <button class="nav-btn" onclick="moveSlide(-1)">Back / السابق</button>
-        <button class="nav-btn" onclick="moveSlide(1)" style="background: var(--orange-primary);">Next / التالي</button>
+    <!-- PAGE 2: MARKET ANALYSIS & OPPORTUNITY -->
+    <div class="page">
+        <div class="section-block">
+            <h2>2. تحليل السوق (Market Analysis)</h2>
+            <h3 class="lang-ar">تجزئة السوق (Segmentation):</h3>
+            <p class="lang-ar">نستهدف ثلاثة قطاعات أساسية: الجامعات، مراكز التدريب المهني، والمؤسسات الحكومية والخاصة الراغبة في توطين المعرفة (B2B & B2G).</p>
+            <div class="lang-en">We target three core sectors: Universities seeking digital transformation, Vocational Training Centers requiring rapid curriculum development, and Government & Private entities (B2B/B2G) focused on knowledge localization and AI training.</div>
+            
+            <h3 class="lang-ar" style="margin-top: 30px;">تحليل SWOT:</h3>
+            <div class="swot-grid">
+                <div class="swot-item swot-s">
+                    <strong class="lang-ar">نقاط القوة (Strengths):</strong>
+                    <p class="lang-ar" style="font-size: 0.85rem;">دعم قوقل، خبرة المؤسس 21 عاماً، بنية Gemini 2.5 الأصيلة.</p>
+                    <p class="lang-en" style="font-size: 0.75rem; margin-top: 5px; opacity: 0.8;">Google Cloud support, founder's 21 years of EdTech expertise, and native Gemini 2.5 architecture.</p>
+                </div>
+                <div class="swot-item swot-w">
+                    <strong class="lang-ar">نقاط الضعف (Weaknesses):</strong>
+                    <p class="lang-ar" style="font-size: 0.85rem;">الحاجة لتوسيع فرق المبيعات المحلية في أسواق التوسع.</p>
+                    <p class="lang-en" style="font-size: 0.75rem; margin-top: 5px; opacity: 0.8;">Need to expand local sales teams within target expansion markets (Jordan/KSA).</p>
+                </div>
+                <div class="swot-item swot-o">
+                    <strong class="lang-ar">الفرص (Opportunities):</strong>
+                    <p class="lang-ar" style="font-size: 0.85rem;">رؤية 2030 في السعودية، التحول الرقمي بالأردن.</p>
+                    <p class="lang-en" style="font-size: 0.75rem; margin-top: 5px; opacity: 0.8;">Alignment with Saudi Vision 2030 and Jordan's aggressive digital transformation goals.</p>
+                </div>
+                <div class="swot-item swot-t">
+                    <strong class="lang-ar">التحديات (Threats):</strong>
+                    <p class="lang-ar" style="font-size: 0.85rem;">سرعة التطور التقني للنماذج اللغوية المنافسة.</p>
+                    <p class="lang-en" style="font-size: 0.75rem; margin-top: 5px; opacity: 0.8;">The rapid pace of technological evolution in competing Large Language Models (LLMs).</p>
+                </div>
+            </div>
+
+            <h3 class="lang-ar" style="margin-top: 30px;">المنافسة والشركاء:</h3>
+            <p class="lang-ar">نتميز عن المنافسين العالميين بقدرتنا على "تخصيص" المحتوى للثقافة العربية ودعم فئات الإعاقة آلياً. نعتبر قوقل شريكنا التقني، ونطمح أن تكون أورانج شريكنا الاستراتيجي.</p>
+            <div class="lang-en">We differentiate ourselves from global competitors through our ability to hyper-localize content for Arab culture and provide automated accessibility for learners with special needs. Google is our technical partner, and we seek Orange as our strategic partner for regional scaling.</div>
+
+            <h2>3. تحديد فرصة السوق (Opportunity)</h2>
+            <p class="lang-ar">سوق تقنيات التعليم (EdTech) في منطقة الشرق الأوسط ينمو بمعدل سنوي مركب يتجاوز 15%. المنصة تلبّي حاجة حقيقية لسرعة الإنجاز والسيادة على البيانات، وهو ما تطلبه الحكومات والشركات الكبرى حالياً.</p>
+            <div class="lang-en">The EdTech market in the MENA region is growing at a CAGR of 15%+. Edaad AI meets the critical demand for speed of execution and data sovereignty—two factors currently mandated by governments and large-scale enterprises.</div>
+        </div>
+
+        <div class="footer">
+            <span>Orange OSVP 2026 | Strategic Plan</span>
+            <span>الصفحة 2 من 4</span>
+        </div>
     </div>
 
-    <script>
-        let current = 0;
-        const slides = document.querySelectorAll('.slide');
-        const progressBar = document.getElementById('progressBar');
+    <!-- PAGE 3: PRODUCT & TEAM -->
+    <div class="page">
+        <div class="section-block">
+            <h2>4. عرض المنتج والابتكار (Product Presentation)</h2>
+            <div class="highlight-box">
+                <h3 class="lang-ar" style="margin-top: 0;">المزايا الجوهرية (Core Functionalities):</h3>
+                <ul class="lang-ar" style="padding-right: 20px;">
+                    <li><strong>مختبرات الواقع المعزز (AR Studio):</strong> رفع النماذج ثلاثية الأبعاد وتحويلها لدروس تفاعلية غامرة آلياً.</li>
+                    <li><strong>المساعد التربوي الذكي:</strong> أول tutor عربي يستخدم الاستدلال السقراطي لتمكين الطالب من الفهم العميق.</li>
+                    <li><strong>Exam Guardian:</strong> نظام سيادي مدعوم بالذكاء الاصطناعي لضمان نزاهة التقييمات التعليمية.</li>
+                </ul>
+                <ul class="lang-en" style="border: none; padding-left: 20px; margin-top: 15px; color: var(--text-en); list-style: disc;">
+                    <li><strong>AR Studio Labs:</strong> Seamlessly upload 3D models and transform them into automated immersive interactive lessons.</li>
+                    <li><strong>Smart Educational Tutor:</strong> The first Arabic-focused AI tutor using Socratic reasoning to empower deep understanding.</li>
+                    <li><strong>Exam Guardian:</strong> A sovereign AI-driven system designed to ensure the integrity and reliability of educational assessments.</li>
+                </ul>
+            </div>
 
-        function updateProgress() {
-            const progress = ((current + 1) / slides.length) * 100;
-            progressBar.style.width = progress + '%';
-        }
+            <h2>5. معلومات فريق الإدارة (Management Team)</h2>
+            <div class="team-card">
+                <div class="team-avatar">SA</div>
+                <div style="flex: 1;">
+                    <strong class="lang-ar" style="font-size: 1.2rem;">سعد أبوشندي (Saad Abushendi)</strong><br>
+                    <small class="lang-ar">المؤسس، المبرمج والمدير التنفيذي</small>
+                    <p class="lang-ar" style="font-size: 0.85rem; margin-top: 8px;">خبرة 21 عاماً في تكنولوجيا الحاسوب والذكاء الاصطناعي، مدرب معتمد متخصص في بناء الأنظمة السيادية ذات الكفاءة العالية.</p>
+                    <div class="lang-en" style="border: none; padding-left: 0; font-size: 0.85rem; margin-top: 8px; color: var(--text-en);">
+                        A seasoned expert with 21 years of experience in Computer Science and AI. A certified trainer specializing in the architecture and development of high-performance, sovereign digital ecosystems.
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="lang-ar">استراتيجية التوظيف (Global-Local Strategy):</h3>
+            <p class="lang-ar">سنقوم بتوظيف كفاءات محلية في كل دولة توسع (الأردن، السعودية) لضمان توطين الحلول، زيادة جودة الدعم الفني، وخدمة المجتمع المحلي بأفضل شكل.</p>
+            <div class="lang-en">We are committed to a "Local-First" hiring strategy in every expansion market (Jordan and Saudi Arabia). This ensures the hyper-localization of our solutions, provides superior technical support, and maximizes our positive contribution to the local community.</div>
+        </div>
 
-        function moveSlide(step) {
-            slides[current].classList.remove('active');
-            current = (current + step + slides.length) % slides.length;
-            slides[current].classList.add('active');
-            updateProgress();
-            window.scrollTo(0, 0);
-        }
+        <div class="footer">
+            <span>Orange OSVP 2026 | Product & Team</span>
+            <span>الصفحة 3 من 4</span>
+        </div>
+    </div>
 
-        // Keyboard support
-        window.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowRight" || e.key === " ") moveSlide(1);
-            if (e.key === "ArrowLeft") moveSlide(-1);
-        });
+    <!-- PAGE 4: DETAILED FINANCIAL FORECAST -->
+    <div class="page">
+        <div class="section-block">
+            <h2>6. التوقعات المالية (Financial Forecast)</h2>
+            <p class="lang-ar">تعتمد المنصة على نموذج SaaS وB2B. تتضمن التوقعات الانتقال التدريجي لنماذج <strong>Gemini 3</strong> في السنة الثانية لرفع جودة الاستدلال.</p>
+            <div class="lang-en">Modelled on B2B SaaS. Projections include the transition to <strong>Gemini 3</strong> models in Year 2 for enhanced reasoning power.</div>
 
-        // Initialize progress
-        updateProgress();
-    </script>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="label-cell">البند / Item</th>
+                            <th>2026 (Seed)</th>
+                            <th>2027 (Growth)</th>
+                            <th>2028 (Scale)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="label-cell">الإيرادات (Revenue)</td>
+                            <td>$150,000</td>
+                            <td>$520,000</td>
+                            <td>$1,450,000</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">تكاليف النماذج (AI Models - Gemini)</td>
+                            <td>($35,000)</td>
+                            <td>($110,000)</td>
+                            <td>($280,000)</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">السيرفرات والتشغيل (Ops & Cloud)</td>
+                            <td>($25,000)</td>
+                            <td>($75,000)</td>
+                            <td>($180,000)</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">الرواتب والتسويق (G&A)</td>
+                            <td>($40,000)</td>
+                            <td>($150,000)</td>
+                            <td>($350,000)</td>
+                        </tr>
+                        <tr class="row-total">
+                            <td class="label-cell" style="background: var(--orange-soft);">صافي الربح (Net Profit)</td>
+                            <td>$50,000</td>
+                            <td>$185,000</td>
+                            <td>$640,000</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">هامش الربح (Gross Margin %)</td>
+                            <td>60%</td>
+                            <td>64%</td>
+                            <td>68%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="lang-ar" style="font-size: 0.8rem; margin-top: 10px; color: var(--text-light);">* تم احتساب تكاليف الاستخدام بناءً على تحديثات قوقل المتوقعة لنماذج Gemini 3 وتكاليف تخزين المحتوى الضخم.</p>
+
+            <h2>7. تقييم الأثر المجتمعي (Societal Impact)</h2>
+            <div class="highlight-box" style="background-color: #f3faf5; border-color: #34A853;">
+                <ul class="lang-ar" style="padding-right: 20px;">
+                    <li><strong>التمكين التقني:</strong> تأهيل الكوادر العربية في مجال الذكاء الاصطناعي عبر منهجنا العملي.</li>
+                    <li><strong>توفير الكلفة:</strong> خفض عوائق دخول التعليم الرقمي للمؤسسات بنسبة 90%.</li>
+                    <li><strong>الشمولية:</strong> الالتزام بدمج ذوي الاحتياجات الخاصة كجزء من الهوية الأساسية للمنصة في مرحلة النمو.</li>
+                </ul>
+                <ul class="lang-en" style="border: none; padding-left: 20px; margin-top: 15px; color: #34A853; list-style: disc;">
+                    <li><strong>Tech Empowerment:</strong> Qualifying Arab talent in the field of AI through our practical, applied curriculum.</li>
+                    <li><strong>Cost Efficiency:</strong> Reducing entry barriers to digital education for institutions by 90%.</li>
+                    <li><strong>Inclusivity:</strong> Commitment to integrating special needs learners as a core part of the platform's identity during the growth phase.</li>
+                </ul>
+            </div>
+            <p style="text-align: center; font-weight: 900; margin-top: 30px; font-size: 1.2rem;">نحن نبني بذكاء.. لنُعدَّ جيلاً للمستقبل.</p>
+            <p style="text-align: center; font-family: 'Outfit'; opacity: 0.7;">Building Intelligence.. Preparing the Generation of the Future.</p>
+        </div>
+
+        <div class="footer">
+            <span>Orange OSVP 2026 | Financial Plan</span>
+            <span>الصفحة 4 من 4</span>
+        </div>
+    </div>
+
 </body>
 
 </html>
